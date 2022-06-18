@@ -135,9 +135,9 @@ class modelbase:
 		keep.append('treat')
 		for j in scenarios:
 			for t in self.ages:
-				keep.append('gaindelay_'+str(t)+'_'+str(j))
-			df = df.loc[~df['gaindelay_'+str(60)+'_'+str(j)].isna(),:]
-		self.gains_labels = ['gaindelay_'+str(a)+'_'+str(j) for j in scenarios for a in self.ages]
+				keep.append('gaindelay_'+str(t)+'_'+str(j)+"compas")
+			df = df.loc[~df['gaindelay_'+str(60)+'_'+str(j)+"compas"].isna(),:]
+		self.gains_labels = ['gaindelay_'+str(a)+'_'+str(j)+"compas" for j in scenarios for a in self.ages]
 		for j in scenarios:
 			df['nra_'+str(j)] = 65
 			if j==7:

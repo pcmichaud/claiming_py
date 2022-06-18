@@ -1,5 +1,5 @@
 import pandas as pd
-import numpy as np
+import numpy as np 
 from numba import njit, float64, int64
 from numba.types import Tuple
 import swifter
@@ -14,6 +14,6 @@ m.init_params(shifters=shifters)
 m.estimate()
 m.covar()
 table = m.output()
-table.to_latex('output/table_estimates_incentives.tex')
-table.to_excel('output/table_estimates_incentives.xlsx')
+table.to_latex('output/table_estimates_incentives_compas.tex')
+table.to_excel('output/table_estimates_incentives_compas.xlsx')
 print(table)

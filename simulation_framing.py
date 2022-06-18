@@ -28,11 +28,13 @@ for a in np.arange(60,70):
 	m.predict(claim_age=a,accrual_change=0.0,nra=65,scn='base')
 	m.predict(claim_age=a,accrual_change=0.0,nra=67,scn='delay')
 	table.loc[a,'prob'] = m.df['prob_base'].mean()
+	table.loc[a,'delay'] = m.df['prob_delay'].mean()
 	table.loc[a,'change'] = m.df['prob_delay'].mean()-m.df['prob_base'].mean()
 	table.loc[a,'percent'] = m.df['prob_delay'].mean()/m.df['prob_base'].mean()-1
 
 print(table.round(4))
 
-table.round(4).to_latex('output/table_simulation_framing.tex')
 
+table.round(4).to_latex('output/table_simulation_framing.tex')
+table.round(3).to_excel('output/table_simulation_framing.xlsx')
 print(table.sum())
